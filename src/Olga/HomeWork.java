@@ -1,3 +1,5 @@
+package Olga;
+
 import java.math.BigInteger;
 import java.util.Scanner;
 
