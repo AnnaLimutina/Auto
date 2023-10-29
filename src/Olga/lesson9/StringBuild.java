@@ -110,11 +110,57 @@ public static void getChangeString(){
  }
 
  public static String changeWorldToLetter(String string){
-        int index = string.indexOf("word");
+
         StringBuilder result = new StringBuilder();
-        result.append(string).delete(index, index + 3).insert(index, "letter");
+
+     result.append(string);
+     int index = result.indexOf("world");
+     int lastIndex = result.lastIndexOf("world");
+        result.delete(index, index + 5);
+        result.insert(index, "letter");
+     System.out.println(result);
         return String.valueOf(result);
  }
+
+ public static int findAmountOfDigits(String string){
+        char[] chars = string.toCharArray();
+        int amount = 0;
+     for (char a : chars
+          ) {
+         if (Character.isDigit(a)){
+             amount++;
+         }
+     }
+     return amount;
+ }
+    public static int findAmountOfLetters(String string){
+        char[] chars = string.toCharArray();
+        int amount = 0;
+        for (char a : chars
+        ) {
+            if (Character.isLetter(a)){
+                amount++;
+            }
+        }
+        return amount;
+    }
+
+    public static String deleteExtraSpaces(String string){
+        StringBuilder str = new StringBuilder();
+           str.append(string.trim());
+
+        for (int i = 0; i < str.length() - 1; i++){
+            while (str.charAt(i + 1) == ' ' && str.charAt(i) == ' '){
+                str.deleteCharAt(i);            }
+        }
+        System.out.println(str);
+        return String.valueOf(str);
+    }
+
+
+
+
+
 
 
 
@@ -123,7 +169,11 @@ public static void getChangeString(){
         //StringBuild.getShorterString();
         //StringBuild.getAverageString();
         //StringBuild.getChangeString();
-        String[] arrayOfVariable = {"helloWorld", "misterProper", "variableString", "stringVariable"};
-        StringBuild.getSnakeCaseFromCamelCase(arrayOfVariable);
+        //String[] arrayOfVariable = {"helloWorld", "misterProper", "variableString", "stringVariable"};
+        //StringBuild.getSnakeCaseFromCamelCase(arrayOfVariable);
+        //StringBuild.deleteExtraSpaces("     My     kitten   is sleeping     else  ");
+        //StringBuild.changeWorldToLetter("My world is beautiful");
     }
+
+
 }
